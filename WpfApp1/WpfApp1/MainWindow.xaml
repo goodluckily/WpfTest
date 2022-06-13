@@ -16,7 +16,51 @@
         <Style x:Key="defaultStyle" TargetType="Button" BasedOn="{StaticResource baseButtonStyle}">
             <Setter Property="Width" Value="100"></Setter>
             <Setter Property="Height" Value="40"></Setter>
-            <Setter Property="FontSize" Value="30"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+
+            <!--简单触发器-->
+            <!--<Style.Triggers>
+                -->
+            <!--1.鼠标进入-->
+            <!--
+
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="White"></Setter>
+                    <Setter Property="FontSize" Value="30"></Setter>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="false">
+                    <Setter Property="Background" Value="Black"></Setter>
+                    <Setter Property="FontSize" Value="20"></Setter>
+                </Trigger>
+            </Style.Triggers>-->
+
+            <!--多条件触发器-->
+            <!--<Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsMouseOver" Value="True"></Condition>
+                        <Condition Property="IsFocused" Value="True"></Condition>
+                    </MultiTrigger.Conditions>
+                    <MultiTrigger.Setters>
+                        <Setter Property="Background" Value="Yellow"></Setter>
+                        <Setter Property="FontSize" Value="50"></Setter>
+                    </MultiTrigger.Setters>
+                </MultiTrigger>
+            </Style.Triggers>-->
+
+            <!--事件触发器-->
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Duration="0:0:0.2"  Storyboard.TargetProperty="FontSize" To="30"></DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+
         </Style>
 
 
@@ -41,9 +85,9 @@
             <Border Grid.Row="1" Grid.Column="1" Background="Green" /> -->
 
         <StackPanel>
-            <Button Style="{StaticResource defaultStyle}" Content="哈哈1"></Button>
-            <Button Style="{StaticResource defaultStyle}" Content="哈哈2"></Button>
-            <Button Style="{StaticResource defaultStyle}" Content="哈哈3"></Button>
+            <Button Name = "Button1" Style="{StaticResource defaultStyle}" Content="哈哈1"></Button>
+            <Button Name = "Button2" Style="{StaticResource defaultStyle}" Content="哈哈2"></Button>
+            <Button Name = "Button3" Style="{StaticResource defaultStyle}" Content="哈哈3"></Button>
         </StackPanel>
 
     </Grid>
